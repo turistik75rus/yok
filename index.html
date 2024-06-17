@@ -1,42 +1,298 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Меню монеток</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>TG Stars Urartu</title>
+    
     <style>
-        body { font-family: Arial, sans-serif; }
-        .menu-item { margin: 10px 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            --bg-gray: #181818;
+            --bg-blue: #17212B;
+            --card-bg-gray: #212121;
+            --card-bg-blue: #1f2c39;
+
+            --clr-yellow: #F9C334;
+            --btn-green: #31B545;
+        }
+        body {
+            min-height: 100dvh;
+            /* background-color: var(--bg-gray); */
+            background-color: var(--bg-blue);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .container1 {
+            max-width: 420px;
+            width: 100%;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .card_row1 {
+            display: flex;
+            gap: 16px;
+        }
+        .card1 {
+            flex: 1;
+            /* background-color: var(--card-bg-gray); */
+            background-color: var(--card-bg-blue);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .card_content1 {
+            display: flex;
+            align-items: start;
+            gap: 16px
+        }
+        .card_content1 img {
+            width: 48px;
+            height: 48px;
+        }
+        .item_info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: #fff;
+        }
+        .item_value {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--clr-yellow);
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .price img {
+            height: 12px;
+            width: 12px;
+        }
+
+
+        .container2 {
+            max-width: 420px;
+            width: 100%;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .card2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;;
+        }
+        .card2 button {
+            height: 38px;
+            border-radius: 8px;
+            background-color: var(--btn-green);
+            color: #fff;
+            font-weight: 700;
+            border: none;
+        }
+        .card_content2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            border-radius: 8px;
+            padding: 16px;
+            /* background-color: var(--card-bg-gray); */
+            background-color: var(--card-bg-blue);
+        }
+        .card_content2 img {
+            width: 72px;
+            height: 72px;
+        }
+        .separator {
+            width: 64px;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .item_info2 {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            color: #fff;
+            align-items: center;
+        }
+        .item_value2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .price2 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--clr-yellow);
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .price2 img {
+            height: 12px;
+            width: 12px;
+        }
+        .price_value2 {
+            color: #fff;
+        }
     </style>
+
 </head>
 <body>
-    <h1>Выберите монетку для покупки</h1>
-    <div id="menu">
-        {% for item in menu_items %}
-        <div class="menu-item">
-            <h2>{{ item.name }} - ${{ item.price }}</h2>
-            <p>{{ item.description }}</p>
-            <button onclick="buy('{{ item.id }}')">Купить</button>
+    <div class="container1">
+        <div class="card_row1">
+            <div class="card1">
+                <div class="card_content1">
+                    <img src="1-48.png">
+                    <div class="item_info">
+                        <span class="item_value">30 UC</span>
+                        <div class="price">
+                            <img src="telegram_star.png">
+                            <span class="price_value">50</span>
+                        </div>
+                    </div>
+               </div>
+            </div>
+
+            <div class="card1">
+                <div class="card_content1">
+                    <img src="2-48.png">
+                    <div class="item_info">
+                        <span class="item_value">120 UC</span>
+                        <div class="price">
+                            <img src="telegram_star.png">
+                            <span class="price_value">200</span>
+                        </div>
+                    </div>
+               </div>
+            </div>
         </div>
-        {% endfor %}
+        <div class="card_row1">
+            <div class="card1">
+                <div class="card_content1">
+                    <img src="1-48.png">
+                    <div class="item_info">
+                        <span class="item_value">900 UC</span>
+                        <div class="price">
+                            <img src="telegram_star.png">
+                            <span class="price_value">1000</span>
+                        </div>
+                    </div>
+               </div>
+            </div>
+
+            <div class="card1">
+                <div class="card_content1">
+                    <img src="2-48.png">
+                    <div class="item_info">
+                        <span class="item_value">8400 UC</span>
+                        <div class="price">
+                            <img src="telegram_star.png">
+                            <span class="price_value">8800</span>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
     </div>
-    <script>
-        function buy(item_id) {
-            fetch('/buy', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ item_id: item_id }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    Telegram.WebApp.sendData(`buy_${item_id}`);
-                }
-            });
-        }
-    </script>
+
+    <div class="container2">
+        <div class="card_row1">
+            <div class="card2">
+                <div class="card_content2">
+                    <img src="1-72.png">
+                    <div class="item_info2">
+                        <span class="item_value2">30 UC</span>
+                        <span class="separator"></span>
+                        <div class="price2">
+                            <img src="telegram_star.png">
+                            <span class="price_value2">50</span>
+                        </div>
+                    </div>
+               </div>
+               <button>КУПИТЬ</button>
+            </div>
+
+            <div class="card2">
+                <div class="card_content2">
+                    <img src="3-72.png">
+                    <div class="item_info2">
+                        <span class="item_value2">900 UC</span>
+                        <span class="separator"></span>
+                        <div class="price2">
+                            <img src="telegram_star.png">
+                            <span class="price_value2">200</span>
+                        </div>
+                    </div>
+               </div>
+               <button>КУПИТЬ</button>
+            </div>
+
+            <div class="card2">
+                <div class="card_content2">
+                    <img src="5-72.png">
+                    <div class="item_info2">
+                        <span class="item_value2">8400 UC</span>
+                        <span class="separator"></span>
+                        <div class="price2">
+                            <img src="telegram_star.png">
+                            <span class="price_value2">200</span>
+                        </div>
+                    </div>
+               </div>
+               <button>КУПИТЬ</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="card_row1">
+            <div class="card2">
+                <div class="card_content2">
+                    <img src="1-72.png">
+                    <div class="item_info2">
+                        <span class="item_value2">30 UC</span>
+                        <span class="separator"></span>
+                        <div class="price2">
+                            <img src="telegram_star.png">
+                            <span class="price_value2">50</span>
+                        </div>
+                    </div>
+               </div>
+               <button>КУПИТЬ</button>
+            </div>
+
+            <div class="card2">
+                <div class="card_content2">
+                    <img src="2-72.png">
+                    <div class="item_info2">
+                        <span class="item_value2">120 UC</span>
+                        <span class="separator"></span>
+                        <div class="price2">
+                            <img src="telegram_star.png">
+                            <span class="price_value2">200</span>
+                        </div>
+                    </div>
+               </div>
+               <button>КУПИТЬ</button>
+            </div>
+        </div>
+    </div>
+    
 </body>
 </html>
